@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>سمان الهنا | سمان طازج بـ 3 ريال للسمانة</title>
+<meta name="description" content="سمان الهنا - سمان طازج بسعر 3 ريال للسمانة. للتواصل: 0555019554" />
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet" />
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; font-family:'Cairo', Tahoma, sans-serif; -webkit-tap-highlight-color: transparent; }
+  html { scroll-behavior:smooth; }
+  body { background:#0d0a08; color:#fff; overflow-x:hidden; line-height:1.9; }
+
+  .bg-anim {
+    position:fixed; inset:0; z-index:-2;
+    background:radial-gradient(circle at 20% 20%, #ff9a3c 0%, transparent 45%),
+               radial-gradient(circle at 80% 70%, #d97706 0%, transparent 50%),
+               radial-gradient(circle at 50% 100%, #b45309 0%, transparent 55%),
+               linear-gradient(135deg, #1a0f05, #2a1607 60%, #3b1d08);
+    background-size:200% 200%;
+    animation:bgMove 15s ease infinite;
+  }
+  @keyframes bgMove {
+    0%,100% { background-position:0% 0%, 100% 100%, 50% 50%, 0% 0%; }
+    50% { background-position:100% 100%, 0% 0%, 50% 0%, 100% 100%; }
+  }
+
+  .bubbles { position:fixed; inset:0; z-index:-1; pointer-events:none; overflow:hidden; }
+  .bubble { position:absolute; bottom:-100px; font-size:26px; opacity:.25; animation:floatUp linear infinite; }
+  @keyframes floatUp {
+    0% { transform:translateY(0) rotate(0deg); opacity:0; }
+    10% { opacity:.3; }
+    90% { opacity:.3; }
+    100% { transform:translateY(-110vh) rotate(360deg); opacity:0; }
+  }
+
+  nav {
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    display:flex; justify-content:space-between; align-items:center;
+    padding:14px 22px;
+    background:rgba(15,10,6,.65);
+    backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
+    border-bottom:1px solid rgba(255,255,255,.08);
+    transition:.3s;
+  }
+  .logo { font-weight:900; font-size:1.3rem; background:linear-gradient(90deg,#ffb84d,#ff7b00,#ffb84d); background-size:200% auto; -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; animation:shine 3s linear infinite; }
+  @keyframes shine { to { background-position:200% center; } }
+  .nav-links { display:flex; gap:16px; flex-wrap:wrap; }
+  .nav-links a { color:#fff; text-decoration:none; font-size:.9rem; font-weight:600; position:relative; transition:.3s; }
+  .nav-links a::after { content:''; position:absolute; bottom:-4px; right:0; width:0; height:2px; background:linear-gradient(90deg,#ffb84d,#ff7b00); transition:.3s; }
+  .nav-links a:hover::after { width:100%; }
+  .nav-links a:hover { color:#ffb84d; }
+  @media(max-width:850px){ .nav-links { display:none; } nav { justify-content:center; } }
+
+  .mobile-menu {
+    display:none; position:fixed; bottom:20px; left:50%; transform:translateX(-50%);
+    z-index:100; background:linear-gradient(135deg,#ff8c00,#d97706);
+    border-radius:60px; padding:12px 22px; gap:18px;
+    box-shadow:0 15px 40px rgba(255,120,0,.6);
+  }
+  .mobile-menu a { color:#fff; text-decoration:none; font-weight:700; font-size:1.1rem; }
+  @media(max-width:850px){ .mobile-menu { display:flex; } }
+
+  .hero {
+    min-height:100vh; display:flex; flex-direction:column;
+    align-items:center; justify-content:center; text-align:center;
+    padding:120px 22px 80px; position:relative;
+  }
+  .hero-quail-svg {
+    width:180px; height:180px; margin-bottom:10px;
+    animation:bounceQuail 3s ease-in-out infinite;
+    filter:drop-shadow(0 15px 30px rgba(255,140,0,.5));
+  }
+  @keyframes bounceQuail {
+    0%,100% { transform:translateY(0) rotate(-3deg); }
+    50% { transform:translateY(-18px) rotate(3deg); }
+  }
+  .hero h1 {
+    font-size:clamp(2.2rem, 8vw, 4.5rem); font-weight:900; margin-bottom:15px; line-height:1.2;
+    background:linear-gradient(90deg,#ffb84d,#ff6b00,#ffb84d,#ff6b00);
+    background-size:300% auto;
+    -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+    animation:shine 4s linear infinite;
+  }
+  .hero p { font-size:clamp(1rem, 3vw, 1.25rem); max-width:680px; color:#e5d6c4; margin-bottom:25px; animation:fadeInUp 1s ease .3s both; }
+  .hero-price {
+    display:inline-flex; align-items:center; gap:12px;
+    background:linear-gradient(135deg, #ff8c00, #d97706);
+    padding:14px 34px; border-radius:60px;
+    font-size:1.2rem; font-weight:900;
+    box-shadow:0 12px 40px rgba(255,120,0,.55);
+    animation:pulseBtn 2s ease-in-out infinite; margin-bottom:30px;
+  }
+  @keyframes pulseBtn {
+    0%,100% { transform:scale(1); box-shadow:0 12px 40px rgba(255,120,0,.55); }
+    50% { transform:scale(1.05); box-shadow:0 16px 55px rgba(255,120,0,.85); }
+  }
+  .hero-btns { display:flex; gap:14px; flex-wrap:wrap; justify-content:center; }
+  .btn {
+    display:inline-flex; align-items:center; gap:8px;
+    padding:15px 30px; border-radius:60px;
+    text-decoration:none; font-weight:700; font-size:1rem;
+    transition:.35s cubic-bezier(.34,1.56,.64,1);
+    border:none; cursor:pointer;
+  }
+  .btn:hover { transform:translateY(-4px) scale(1.04); }
+  .btn-wa { background:#25D366; color:#fff; box-shadow:0 10px 30px rgba(37,211,102,.45); }
+  .btn-call { background:#fff; color:#1a0f05; box-shadow:0 10px 30px rgba(255,255,255,.25); }
+  @keyframes fadeInUp { from { opacity:0; transform:translateY(40px); } to { opacity:1; transform:translateY(0); } }
+  .wave { position:absolute; bottom:-2px; left:0; width:100%; height:80px; }
+
+  section { padding:80px 22px; position:relative; }
+  .container { max-width:1150px; margin:auto; }
+  .section-title {
+    font-size:clamp(1.8rem, 6vw, 2.8rem); text-align:center; margin-bottom:15px; font-weight:900;
+    background:linear-gradient(90deg,#ffb84d,#ff6b00);
+    -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+  }
+  .section-sub { text-align:center; color:#c9b8a3; margin-bottom:50px; font-size:1rem; }
+
+  .info-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:22px; }
+  .info-card {
+    background:linear-gradient(145deg, rgba(255,255,255,.07), rgba(255,255,255,.02));
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:22px; padding:28px 22px; text-align:center;
+    backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
+    transition:.4s cubic-bezier(.34,1.56,.64,1);
+    opacity:0; transform:translateY(40px);
+  }
+  .info-card.show { opacity:1; transform:translateY(0); }
+  .info-card:hover { transform:translateY(-8px) scale(1.03); border-color:#ff8c00; box-shadow:0 20px 45px rgba(255,120,0,.35); }
+  .info-icon { font-size:2.6rem; margin-bottom:14px; display:inline-block; animation:wiggle 3s ease-in-out infinite; }
+  @keyframes wiggle { 0%,100% { transform:rotate(-8deg); } 50% { transform:rotate(8deg); } }
+  .info-card h3 { color:#ffb84d; font-size:1.15rem; margin-bottom:8px; }
+  .info-card p { color:#d6c5b0; font-size:.95rem; }
+
+  .nutrition-box { background:linear-gradient(145deg, rgba(255,255,255,.08), rgba(255,255,255,.02)); border:1px solid rgba(255,255,255,.12); border-radius:26px; padding:30px; max-width:720px; margin:auto; }
+  .nutrition-row { display:flex; justify-content:space-between; padding:14px 0; border-bottom:1px dashed rgba(255,255,255,.12); font-size:1rem; }
+  .nutrition-row:last-child { border-bottom:none; }
+  .nutrition-row span:first-child { color:#e5d6c4; }
+  .nutrition-row span:last-child { color:#ffb84d; font-weight:700; }
+  .nutrition-note { text-align:center; color:#a89078; font-size:.85rem; margin-top:15px; }
+
+  .stats-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(140px, 1fr)); gap:16px; margin-top:30px; }
+  .stat { text-align:center; padding:20px; background:rgba(255,255,255,.05); border-radius:16px; }
+  .stat-num { font-size:2rem; font-weight:900; color:#ffb84d; }
+  .stat-label { color:#c9b8a3; font-size:.85rem; }
+
+  .recipes-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:22px; }
+  .recipe-card {
+    background:linear-gradient(145deg, rgba(255,255,255,.07), rgba(255,255,255,.02));
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:22px; overflow:hidden;
+    transition:.4s; opacity:0; transform:translateY(40px);
+  }
+  .recipe-card.show { opacity:1; transform:translateY(0); }
+  .recipe-card:hover { transform:translateY(-6px); border-color:#ff8c00; box-shadow:0 20px 45px rgba(255,120,0,.35); }
+  .recipe-header { background:linear-gradient(135deg,#d97706,#8b5e34); padding:24px; text-align:center; font-size:2.4rem; }
+  .recipe-body { padding:22px; }
+  .recipe-body h3 { color:#ffb84d; margin-bottom:10px; font-size:1.15rem; }
+  .recipe-body p { color:#d6c5b0; font-size:.92rem; margin-bottom:10px; }
+  .recipe-body ol { padding-inline-start:20px; color:#c9b8a3; font-size:.88rem; }
+
+  .faq-item {
+    background:linear-gradient(145deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:16px; margin-bottom:14px; overflow:hidden;
+    transition:.3s;
+  }
+  .faq-question {
+    padding:20px 22px; cursor:pointer; font-weight:700; color:#ffb84d;
+    display:flex; justify-content:space-between; align-items:center;
+    transition:.3s;
+  }
+  .faq-question:hover { background:rgba(255,140,0,.08); }
+  .faq-question::after { content:'+'; font-size:1.5rem; color:#ff8c00; transition:.3s; }
+  .faq-item.open .faq-question::after { transform:rotate(45deg); }
+  .faq-answer { max-height:0; overflow:hidden; transition:max-height .4s ease; color:#c9b8a3; }
+  .faq-answer p { padding:0 22px 20px; font-size:.95rem; }
+  .faq-item.open .faq-answer { max-height:500px; }
+
+  .price-box {
+    background:linear-gradient(135deg, #ff8c00, #b45309);
+    border-radius:32px; padding:55px 25px; text-align:center;
+    position:relative; overflow:hidden;
+    box-shadow:0 25px 70px rgba(255,120,0,.5);
+  }
+  .price-box::before {
+    content:''; position:absolute; top:-50%; left:-50%;
+    width:200%; height:200%;
+    background:linear-gradient(45deg, transparent, rgba(255,255,255,.25), transparent);
+    animation:sweep 4s linear infinite;
+  }
+  @keyframes sweep { 0% { transform:translateX(-100%) rotate(45deg); } 100% { transform:translateX(100%) rotate(45deg); } }
+  .price-box h2 { font-size:1.4rem; margin-bottom:10px; position:relative; }
+  .big-price { font-size:clamp(3.5rem, 14vw, 6rem); font-weight:900; margin:15px 0; position:relative; text-shadow:0 8px 30px rgba(0,0,0,.4); animation:pulsePrice 2s ease-in-out infinite; }
+  @keyframes pulsePrice { 0%,100% { transform:scale(1); } 50% { transform:scale(1.08); } }
+  .big-price small { font-size:1.4rem; font-weight:600; }
+  .price-box p { position:relative; font-size:1.05rem; margin-bottom:25px; }
+
+  .contact-card {
+    background:linear-gradient(145deg, rgba(255,255,255,.08), rgba(255,255,255,.02));
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:28px; padding:45px 25px; text-align:center;
+    backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px);
+  }
+  .contact-card h3 { font-size:1.8rem; margin-bottom:10px; color:#ffb84d; }
+  .phone-big {
+    font-size:clamp(1.8rem, 7vw, 2.6rem); font-weight:900;
+    direction:ltr; display:inline-block; margin:15px 0;
+    background:linear-gradient(90deg,#ffb84d,#ff6b00);
+    -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+    animation:glow 2s ease-in-out infinite alternate;
+  }
+  @keyframes glow { from { filter:drop-shadow(0 0 5px rgba(255,140,0,.4)); } to { filter:drop-shadow(0 0 20px rgba(255,140,0,.9)); } }
+
+  footer { text-align:center; padding:35px 22px; color:#a89078; font-size:.9rem; border-top:1px solid rgba(255,255,255,.08); }
+  footer strong { color:#ffb84d; }
+
+  /* جدول مقارنة */
+  .compare-table {
+    width:100%; border-collapse:collapse; margin-top:20px;
+    background:rgba(255,255,255,.04); border-radius:16px; overflow:hidden;
+  }
+  .compare-table th, .compare-table td { padding:14px 12px; text-align:center; border-bottom:1px solid rgba(255,255,255,.08); font-size:.9rem; }
+  .compare-table th { background:rgba(255,140,0,.18); color:#ffb84d; font-weight:700; }
+  .compare-table td:first-child { color:#e5d6c4; text-align:right; }
+  .compare-table tr:last-child td { border-bottom:none; }
+  .compare-table .hl { color:#25D366; font-weight:700; }
+  @media(max-width:500px){ .compare-table th, .compare-table td { padding:10px 6px; font-size:.8rem; } }
+
+  /* نصائح */
+  .tips-list { max-width:800px; margin:auto; }
+  .tip {
+    display:flex; gap:14px; align-items:flex-start;
+    background:linear-gradient(145deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:16px; padding:18px 20px; margin-bottom:14px;
+    opacity:0; transform:translateY(30px); transition:.4s;
+  }
+  .tip.show { opacity:1; transform:translateY(0); }
+  .tip-num {
+    flex-shrink:0; width:36px; height:36px; border-radius:50%;
+    background:linear-gradient(135deg,#ff8c00,#d97706);
+    display:flex; align-items:center; justify-content:center;
+    font-weight:900; color:#fff;
+  }
+  .tip-content h4 { color:#ffb84d; margin-bottom:4px; font-size:1rem; }
+  .tip-content p { color:#c9b8a3; font-size:.9rem; }
+</style>
+</head>
+<body>
+
+<div class="bg-anim"></div>
+<div class="bubbles" id="bubbles"></div>
+
+<nav>
+  <div class="logo">🐦 سمان الهنا</div>
+  <div class="nav-links">
+    <a href="#about">عن السمان</a>
+    <a href="#nutrition">القيم الغذائية</a>
+    <a href="#compare">مقارنة</a>
+    <a href="#recipes">وصفات</a>
+    <a href="#tips">نصائح</a>
+    <a href="#faq">الأسئلة</a>
+    <a href="#contact">تواصل</a>
+  </div>
+</nav>
+
+<div class="mobile-menu">
+  <a href="#nutrition">🥗</a>
+  <a href="#recipes">🍳</a>
+  <a href="#faq">❓</a>
+  <a href="#contact">📞</a>
+</div>
+
+<!-- البطل -->
+<header class="hero">
+  <svg class="hero-quail-svg" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <radialGradient id="bodyGrad" cx="40%" cy="40%">
+        <stop offset="0%" stop-color="#ffb366"/>
+        <stop offset="100%" stop-color="#8b5e34"/>
+      </radialGradient>
+      <radialGradient id="headGrad" cx="40%" cy="40%">
+        <stop offset="0%" stop-color="#d99664"/>
+        <stop offset="100%" stop-color="#8b5e34"/>
+      </radialGradient>
+    </defs>
+    <ellipse cx="150" cy="190" rx="85" ry="68" fill="url(#bodyGrad)"/>
+    <circle cx="205" cy="135" r="38" fill="url(#headGrad)"/>
+    <ellipse cx="140" cy="195" rx="42" ry="28" fill="#a06a3a" opacity="0.8"/>
+    <polygon points="70,185 25,160 38,195" fill="#6b4423"/>
+    <circle cx="222" cy="128" r="6" fill="#111"/>
+    <circle cx="224" cy="126" r="2.5" fill="#fff"/>
+    <polygon points="242,135 265,142 242,148" fill="#ff8c00"/>
+    <line x1="130" y1="253" x2="125" y2="280" stroke="#ff8c00" stroke-width="4" stroke-linecap="round"/>
+    <line x1="175" y1="253" x2="180" y2="280" stroke="#ff8c00" stroke-width="4" stroke-linecap="round"/>
+    <text x="150" y="80" font-size="40" text-anchor="middle" opacity="0.9">✨</text>
+  </svg>
+  <h1>سمان الهنا</h1>
+  <p>سمان طازج بأجود أنواع وأفضل الأسعار — جودة تستاهل، وطعم ما ينتسى 🧡</p>
+  <div class="hero-price">💰 سعر السمانة: 3 ريال فقط</div>
+  <div class="hero-btns">
+    <a class="btn btn-wa" href="https://wa.me/966555019554" target="_blank">💬 اطلب واتساب</a>
+    <a class="btn btn-call" href="tel:+966555019554">📞 اتصل الآن</a>
+  </div>
+  <svg class="wave" viewBox="0 0 1440 100" preserveAspectRatio="none">
+    <path fill="#0d0a08" d="M0,50 C240,100 480,0 720,50 C960,100 1200,0 1440,50 L1440,100 L0,100 Z"></path>
+  </svg>
+</header>
+
+<!-- عن السمان -->
+<section id="about">
+  <div class="container">
+    <h2 class="section-title">ما هو السمان؟ 🐦</h2>
+    <p class="section-sub">تعرّف على هذا الطائر المميز وتفاصيله الكاملة</p>
+
+    <div class="info-grid">
+      <div class="info-card">
+        <div class="info-icon">🔬</div>
+        <h3>الاسم العلمي</h3>
+        <p>الاسم العلمي: <strong>Coturnix</strong>. أشهر أنواع السمان المربّى هو السمان الياباني (Coturnix japonica).</p>
+      </div>
+      <div class="info-card">
+        <div class="info-icon">🌍</div>
+        <h3>الموطن الأصلي</h3>
+        <p>يعود أصله إلى أوروبا وآسيا وأفريقيا. استأنسه الإنسان منذ آلاف السنين، وبدأت تربيته التجارية في اليابان ثم انتشر عالمياً.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-icon">🦅</div>
+        <h3>العائلة</h3>
+        <p>ينتمي لعائلة <strong>Phasianidae</strong> — نفس عائلة الدجاج والتدرج، لكنه أصغر حجماً بكثير.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-icon">📏</div>
+        <h3>الحجم والوزن</h3>
+        <p>الطول: 16-20 سم. الوزن: 100-150 جرام. حجم صغير لكن قيمة غذائية عالية جداً.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-icon">🥚</div>
+        <h3>إنتاج البيض</h3>
+        <p>تنتج أنثى السمان 200-300 بيضة في السنة. وزن البيضة 10-12 جرام. مدة الحضانة 17-18 يوم فقط.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-icon">⏱️</div>
+        <h3>سرعة النمو</h3>
+        <p>يصل السمان للنضج الجنسي في 6-7 أسابيع. سرعة النمو تجعله من أكثر الطيور كفاءة في الإنتاج.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-icon">🎨</div>
+        <h3>الألوان</h3>
+        <p>ريش السمان بني مع بقع فاتحة وخطوط. يوجد منه ألوان أخرى مثل الأبيض والفضي والذهبي.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-icon">🍽️</div>
+        <h3>الغذاء</h3>
+        <p>في الطبيعة يتغذى على البذور والحشرات الصغيرة. في المزارع يُغذّى على حبوب وعليقة متوازنة.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-icon">🕊️</div>
+        <h3>السلوك</h3>
+        <p>طائر هادئ ونشيط، يحب الاختباء. يتميّز بصوته الجميل، ويُربّى في أقفاص أو أرضيات.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-icon">🏡</div>
+        <h3>سهل التربية</h3>
+        <p>يمكن تربيته في المنازل والشقق بمساحات صغيرة. لا يحتاج رعاية معقّدة، مما جعله مفضّل للمبتدئين.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-icon">🌡️</div>
+        <h3>البيئة المناسبة</h3>
+        <p>يفضّل درجات حرارة معتدلة (18-25°). يحتاج تهوية جيدة وإضاءة مناسبة خاصة في فصل الشتاء.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-icon">💧</div>
+        <h3>الاهتمام بالماء</h3>
+        <p>يحتاج ماء نظيف باستمرار. المربي المحترف يغيّر الماء يومياً لضمان صحة الطيور وإنتاجيتها.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- القيم الغذائية -->
+<section id="nutrition">
+  <div class="container">
+    <h2 class="section-title">القيم الغذائية 🥗</h2>
+    <p class="section-sub">ما يحتويه 100 جرام من لحم السمان</p>
+
+    <div class="nutrition-box">
+      <div class="nutrition-row"><span>🔥 السعرات الحرارية</span><span>134 سعرة</span></div>
+      <div class="nutrition-row"><span>🥩 البروتين</span><span>22 جرام</span></div>
+      <div class="nutrition-row"><span>🧈 الدهون</span><span>4.5 جرام</span></div>
+      <div class="nutrition-row"><span>🍚 الكربوهيدرات</span><span>0 جرام</span></div>
+      <div class="nutrition-row"><span>💧 الماء</span><span>72%</span></div>
+      <div class="nutrition-row"><span>🩸 الحديد</span><span>4.5 ملجم</span></div>
+      <div class="nutrition-row"><span>🦴 الكالسيوم</span><span>15 ملجم</span></div>
+      <div class="nutrition-row"><span>⚡ الزنك</span><span>2.4 ملجم</span></div>
+      <div class="nutrition-row"><span>🧠 فيتامين B12</span><span>0.5 ميكروجرام</span></div>
+      <div class="nutrition-row"><span>🛡️ السيلينيوم</span><span>18 ميكروجرام</span></div>
+      <div class="nutrition-row"><span>💪 فيتامين B6</span><span>0.6 ملجم</span></div>
+      <p class="nutrition-note">* القيم تقريبية وقد تختلف حسب طريقة الطهي</p>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat"><div class="stat-num">+50%</div><div class="stat-label">بروتين أكثر من الدجاج</div></div>
+      <div class="stat"><div class="stat-num">-40%</div><div class="stat-label">دهون أقل من اللحوم</div></div>
+      <div class="stat"><div class="stat-num">3×</div><div class="stat-label">قيمة بيض السمان</div></div>
+      <div class="stat"><div class="stat-num">100%</div><div class="stat-label">طبيعي وطازج</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- جدول مقارنة -->
+<section id="compare">
+  <div class="container">
+    <h2 class="section-title">السمان vs الدجاج ⚖️</h2>
+    <p class="section-sub">مقارنة غذائية لكل 100 جرام</p>
+
+    <div class="nutrition-box" style="max-width:800px;">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>العنصر</th>
+            <th>🐦 السمان</th>
+            <th>🐔 الدجاج</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>السعرات</td><td class="hl">134</td><td>165</td></tr>
+          <tr><td>البروتين</td><td class="hl">22 جرام</td><td>18 جرام</td></tr>
+          <tr><td>الدهون</td><td class="hl">4.5 جرام</td><td>9 جرام</td></tr>
+          <tr><td>الحديد</td><td class="hl">4.5 ملجم</td><td>1.3 ملجم</td></tr>
+          <tr><td>الزنك</td><td class="hl">2.4 ملجم</td><td>1.3 ملجم</td></tr>
+          <tr><td>فيتامين B12</td><td class="hl">0.5 ميكروجرام</td><td>0.3 ميكروجرام</td></tr>
+          <tr><td>الكوليسترول</td><td class="hl">أقل</td><td>أعلى</td></tr>
+        </tbody>
+      </table>
+      <p class="nutrition-note">* السمان يتفوق غذائياً على الدجاج في معظم العناصر</p>
+    </div>
+  </div>
+</section>
+
+<!-- وصفات -->
+<section id="recipes">
+  <div class="container">
+    <h2 class="section-title">أشهى الوصفات 🍳</h2>
+    <p class="section-sub">طرق مختلفة ولذيذة لطهي السمان في البيت</p>
+
+    <div class="recipes-grid">
+      <div class="recipe-card">
+        <div class="recipe-header">🔥</div>
+        <div class="recipe-body">
+          <h3>سمان مشوي على الفحم</h3>
+          <p>الطريقة الأصيلة والمفضلة عند الجميع</p>
+          <ol>
+            <li>تبّل السمان بالليمون والزعفران والبهارات لمدة ساعة.</li>
+            <li>سخّن الفحم جيداً حتى يصبح جمراً.</li>
+            <li>ضع السمان على الشواية واقلبه كل 5 دقائق.</li>
+            <li>استمر 20-25 دقيقة حتى ينضج تماماً.</li>
+            <li>قدّمه مع الخبز والطحينة والسلطة.</li>
+          </ol>
+        </div>
+      </div>
+      <div class="recipe-card">
+        <div class="recipe-header">🍲</div>
+        <div class="recipe-body">
+          <h3>سمان بالفرن مع الخضار</h3>
+          <p>وجبة صحية ومتكاملة</p>
+          <ol>
+            <li>تبّل السمان بالزيت والبهارات.</li>
+            <li>قطّع بطاطس وجزر وبصل وحطها بقاع الصينية.</li>
+            <li>ضع السمان فوق الخضار.</li>
+            <li>غطِّ الصينية بالقصدير وادخلها فرن 180° لمدة 30 دقيقة.</li>
+            <li>اكشف الغطاء 10 دقائق ليتحمر الوجه.</li>
+          </ol>
+        </div>
+      </div>
+      <div class="recipe-card">
+        <div class="recipe-header">🍚</div>
+        <div class="recipe-body">
+          <h3>كبسة السمان</h3>
+          <p>الأكلة المفضلة في المناسبات</p>
+          <ol>
+            <li>حمّر السمان في الزيت حتى يتحمر لونه.</li>
+            <li>أضف البصل والطماطم والبهارات الكاملة.</li>
+            <li>أضف الماء واتركه يغلي.</li>
+            <li>أضف الأرز واطبخ على نار هادئة 20 دقيقة.</li>
+            <li>قدّمها مع اللوز المحمص والزبيب.</li>
+          </ol>
+        </div>
+      </div>
+      <div class="recipe-card">
+        <div class="recipe-header">🥘</div>
+        <div class="recipe-body">
+          <h3>سمان مقلي مقرمش</h3>
+          <p>وجبة سريعة وشهية</p>
+          <ol>
+            <li>اغسل السمان وجففه جيداً.</li>
+            <li>تبّله بالدقيق والبهارات.</li>
+            <li>سخّن الزيت في مقلاة عميقة.</li>
+            <li>اقلي السمان 8-10 دقائق حتى يصبح ذهبي.</li>
+            <li>قدّمه مع البطاطس المقلية.</li>
+          </ol>
+        </div>
+      </div>
+      <div class="recipe-card">
+        <div class="recipe-header">🍛</div>
+        <div class="recipe-body">
+          <h3>سمان بالكريمة</h3>
+          <p>طبق فاخر بطعم كريمي</p>
+          <ol>
+            <li>حمّر السمان في الزبدة حتى يتحمر.</li>
+            <li>أضف البصل والمشروم وقلّب.</li>
+            <li>أضف الكريمة والحليب والبهارات.</li>
+            <li>اتركه على نار هادئة 20 دقيقة.</li>
+            <li>قدّمه مع الأرز الأبيض.</li>
+          </ol>
+        </div>
+      </div>
+      <div class="recipe-card">
+        <div class="recipe-header">🍢</div>
+        <div class="recipe-body">
+          <h3>شيش طاووق السمان</h3>
+          <p>طريقة مبتكرة للتقديم</p>
+          <ol>
+            <li>قطّع السمان إلى قطع متوسطة.</li>
+            <li>تبّله بالزبادي والليمون والبهارات لمدة ساعتين.</li>
+            <li>ضع القطع في أسياخ مع الفلفل والبصل.</li>
+            <li>اشوِ الأسياخ على الفحم أو الشواية الكهربائية.</li>
+            <li>قدّمها مع الخبز والثومية.</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- نصائح -->
+<section id="tips">
+  <div class="container">
+    <h2 class="section-title">نصائح مهمة 💡</h2>
+    <p class="section-sub">قبل الشراء والتخزين والطهي</p>
+
+    <div class="tips-list">
+      <div class="tip">
+        <div class="tip-num">1</div>
+        <div class="tip-content">
+          <h4>عند الشراء</h4>
+          <p>تأكد من نظافة السمان ورائحته الطبيعية، واللحم يكون متماسك وردي اللون. تجنّب أي رائحة غريبة.</p>
+        </div>
+      </div>
+      <div class="tip">
+        <div class="tip-num">2</div>
+        <div class="tip-content">
+          <h4>عند التخزين</h4>
+          <p>يُحفظ السمان الطازج في الثلاجة لمدة 1-2 يوم كحد أقصى، أو يُجمّد في الفريزر حتى شهر للحفاظ على الطزاجة.</p>
+        </div>
+      </div>
+      <div class="tip">
+        <div class="tip-num">3</div>
+        <div class="tip-content">
+          <h4>قبل الطهي</h4>
+          <p>اغسل السمان جيداً بالماء والليمون، وجففه بورق المطبخ. التتبيل المسبق لمدة ساعة يمنح طعماً أعمق.</p>
+        </div>
+      </div>
+      <div class="tip">
+        <div class="tip-num">4</div>
+        <div class="tip-content">
+          <h4>خلال الطهي</h4>
+          <p>لا تفرط في طهي السمان حتى لا يجف لحمه. 20-25 دقيقة شوي أو 30 دقيقة فرن كافية تماماً.</p>
+        </div>
+      </div>
+      <div class="tip">
+        <div class="tip-num">5</div>
+        <div class="tip-content">
+          <h4>للأطفال والحوامل</h4>
+          <p>تأكد من نضج السمان تماماً قبل تقديمه للأطفال والحوامل، واستشر الطبيب لو عندك حساسية من الطيور.</p>
+        </div>
+      </div>
+      <div class="tip">
+        <div class="tip-num">6</div>
+        <div class="tip-content">
+          <h4>التقديم</h4>
+          <p>قدّم السمان مع الأرز أو الخبز والسلطة الخضراء لوجبة متكاملة غنية بالبروتين والفيتامينات.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- السعر -->
+<section id="price">
+  <div class="container">
+    <div class="price-box">
+      <h2>🎉 السعر الأساسي 🎉</h2>
+      <div class="big-price">3 <small>ريال</small></div>
+      <p>سعر السمانة الواحدة — جودة عالية وأسعار منافسة</p>
+      <a class="btn btn-wa" href="https://wa.me/966555019554" target="_blank">💬 اطلب الآن</a>
+    </div>
+  </div>
+</section>
+
+<!-- الأسئلة -->
+<section id="faq">
+  <div class="container">
+    <h2 class="section-title">الأسئلة الشائعة ❓</h2>
+    <p class="section-sub">إجابات على أكثر ما يسألنا عنه العملاء</p>
+
+    <div class="faq-item">
+      <div class="faq-question">كم سعر السمانة الواحدة؟</div>
+      <div class="faq-answer"><p>سعر السمانة الواحدة هو 3 ريال.</p></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">كيف أطلب؟</div>
+      <div class="faq-answer"><p>الطلب سهل: تواصل معنا على الواتساب أو اتصل مباشرة على الرقم 0555019554، وحدد الكمية المطلوبة.</p></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">هل السمان طازج؟</div>
+      <div class="faq-answer"><p>نعم، السمان طازج ويتم تجهيزه لضمان أعلى جودة وأفضل طعم.</p></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">هل السمان منظف وجاهز للطبخ؟</div>
+      <div class="faq-answer"><p>نعم، يتم تنظيف السمان بشكل كامل قبل التسليم ليكون جاهزاً للطهي مباشرة.</p></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">ما أفضل طريقة لطهي السمان؟</div>
+      <div class="faq-answer"><p>الشوي على الفحم والفرن من أفضل الطرق. تجد في الموقع 6 وصفات كاملة لطرق مختلفة.</p></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">كيف أحفظ السمان بعد الشراء؟</div>
+      <div class="faq-answer"><p>في الثلاجة لمدة 1-2 يوم، أو في الفريزر لمدة تصل إلى شهر للحفاظ على الطزاجة.</p></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">هل السمان غني بالبروتين؟</div>
+      <div class="faq-answer"><p>نعم، كل 100 جرام يحتوي على 22 جرام بروتين تقريباً، وهو أعلى من نسبة البروتين في الدجاج.</p></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">هل السمان مناسب للأطفال؟</div>
+      <div class="faq-answer"><p>نعم، لحم السمان سهل الهضم ولطيف على المعدة، لكن تأكد من نضجه التام قبل تقديمه للأطفال.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- تواصل -->
+<section id="contact">
+  <div class="container">
+    <h2 class="section-title">تواصل معنا 📞</h2>
+    <p class="section-sub">نحن في خدمتك للطلب والاستفسار</p>
+
+    <div class="contact-card">
+      <h3>رقم الجوال</h3>
+      <div class="phone-big">0555019554</div>
+      <p style="color:#d6c5b0; margin-bottom:22px;">متوفرين على الواتساب والاتصال</p>
+      <div class="hero-btns">
+        <a class="btn btn-wa" href="https://wa.me/966555019554?text=السلام%20عليكم،%20أريد%20الاستفسار%20عن%20السمان" target="_blank">💬 واتساب</a>
+        <a class="btn btn-call" href="tel:+966555019554" style="background:#ff8c00; color:#fff;">📞 اتصال</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 <strong>سمان الهنا</strong> — جميع الحقوق محفوظة 🐦<br/>
+  صُنع بحب 🧡
+</footer>
+
+<script>
+  const bubbles = document.getElementById('bubbles');
+  const emojis = ['🐦','🥚','🌾','✨','🧡','🪶','🍗'];
+  for (let i = 0; i < 22; i++) {
+    const b = document.createElement('div');
+    b.className = 'bubble';
+    b.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+    b.style.left = Math.random() * 100 + '%';
+    b.style.fontSize = (18 + Math.random() * 22) + 'px';
+    b.style.animationDuration = (12 + Math.random() * 12) + 's';
+    b.style.animationDelay = (Math.random() * 12) + 's';
+    bubbles.appendChild(b);
+  }
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.info-card, .recipe-card, .tip').forEach(el => observer.observe(el));
+
+  window.addEventListener('scroll', () => {
+    const nav = document.querySelector('nav');
+    if (window.scrollY > 60) nav.style.background = 'rgba(15,10,6,.92)';
+    else nav.style.background = 'rgba(15,10,6,.65)';
+  });
+
+  document.querySelectorAll('.faq-item').forEach(item => {
+    item.querySelector('.faq-question').addEventListener('click', () => {
+      item.classList.toggle('open');
+    });
+  });
+</script>
+</body>
+</html>
